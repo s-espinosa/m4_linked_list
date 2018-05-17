@@ -93,13 +93,41 @@ describe LinkedList do
   it "can sort itself" do
     list = LinkedList.new
 
+    list.append(3)
     list.append(5)
+    list.append(8)
     list.append(4)
-    list.prepend(3)
-    list.insert(2, 8)
     list.append(9)
     list.append(2)
     expect(list.to_s).to eq("358492")
+    list.sort
+
+    expect(list.to_s).to eq("234589")
+  end
+
+  it "can sort a sorted list" do
+    list = LinkedList.new
+
+    list.append(2)
+    list.append(3)
+    list.append(4)
+    list.append(5)
+    list.append(8)
+    list.append(9)
+    list.sort
+
+    expect(list.to_s).to eq("234589")
+  end
+
+  it "can sort a reversed list" do
+    list = LinkedList.new
+
+    list.append(9)
+    list.append(8)
+    list.append(5)
+    list.append(4)
+    list.append(3)
+    list.append(2)
     list.sort
 
     expect(list.to_s).to eq("234589")

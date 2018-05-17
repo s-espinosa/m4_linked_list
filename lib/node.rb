@@ -37,19 +37,19 @@ class Node
   end
 
   def bubble
-    if next_node.next_node == nil
-      tail = next_node.next_node
-      new_current = next_node
-      self.next_node = tail
-      new_current.next_node = self
-    elsif next_node.next_node.data < next_node.data
-      tail                = next_node.next_node
-      to_insert           = next_node
-      to_insert.next_node = nil
-      tail.insert(1, to_insert, 1)
-      self.next_node = tail
-    else
-      next_node.bubble
+    return if next_node.next_node == nil
+    if next_node.data > next_node.next_node.data
+      swap_children
     end
+    next_node.bubble
+  end
+
+  private
+
+  def swap_children
+    tail                = next_node.next_node
+    next_node.next_node = nil
+    tail.insert(1, next_node, 1)
+    @next_node = tail
   end
 end

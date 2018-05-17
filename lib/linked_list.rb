@@ -83,8 +83,19 @@ class LinkedList
 
   def sort
     count.times do
+      if @head.data > @head.next_node.data
+        swap_head
+      end
       @head.bubble
-      require 'pry'; binding.pry
     end
+  end
+
+  private
+
+  def swap_head
+    tail = @head.next_node
+    @head.next_node = nil
+    tail.insert(1, @head, 1)
+    @head = tail
   end
 end
