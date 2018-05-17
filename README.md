@@ -1,9 +1,14 @@
 # Linked List Challenge
 
-Checklist:
+Notes:
 
-- [ ] Fix rakefile to actually run all my tests (maybe something wrong with the LinkedList test? Only seems to run using `rspec test/linked_list_test.rb`).
-- [ ] Fix sort.
-- [ ] Implement remaining methods.
-- [ ] Remove `self` where not necessary - consistently use instance variables.
-- [ ] Implement remaining functionality from spec.
+* Stopped fighting with my Rakefile and started running tests with `rspec`.
+* Sort works.
+* Would like to optimize sort.
+    * Check to see if a list is sorted before starting the next round of bubbling.
+    * Bubble to one fewer place each time through as the highest number should always have bubbled as high as it will go.
+* Still need to implement Stack/Queue/File IO
+* Would like to standardize code style (e.g. using `@` to access instance variables vs. using `attr_reader` from within the class, etc.)
+* Could probably still use a refactor.
+    * Clean up separation of responsibility between Node and LinkedList.
+    * Clean up method names/organization of code.
